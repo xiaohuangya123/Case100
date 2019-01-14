@@ -21,7 +21,9 @@
         <activity
             android:name=".case01_pic_cache.activity.PicDetailActivity"
             android:theme="@style/BitImageActivityTheme" />
-        <activity android:name=".case01_pic_cache.activity.BigImageActivity"></activity>
+        <activity
+            android:name=".case01_pic_cache.activity.BigImageActivity"
+            android:theme="@style/BitImageActivityTheme"/>
     </application>
 
 </manifest>

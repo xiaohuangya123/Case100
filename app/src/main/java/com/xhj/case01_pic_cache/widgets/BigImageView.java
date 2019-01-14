@@ -190,8 +190,8 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
 
     /**
      * 手势移动的时候，更新图片显示区域`    `
-     * @param x
-     * @param y
+     * @param x 移动后的X坐标
+     * @param y 移动后的Y坐标
      */
     private void move(int x, int y){
         boolean isInvalidate = false;

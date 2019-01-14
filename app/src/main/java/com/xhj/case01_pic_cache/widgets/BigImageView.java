@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -42,6 +43,8 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
     private GestureDetector mGestureDetector;
     private BitmapFactory.Options options;
 
+    private Paint mPaint;
+
     //继承View需要重写4个构造方法 开始
     public BigImageView(Context context) {
         super(context);
@@ -65,6 +68,9 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
     //继承View需要重写4个构造方法 结束
 
     private void init(Context context, AttributeSet attrs){
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);// 消除锯齿
+        mPaint.setDither(true);//消除抖动
         //设置显示图片的参数，如果对图片质量又要求，采用ARGB_8888模式
         options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
@@ -104,15 +110,6 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
     }
 
     /**
-     * 重写onDraw方法
-     */
-    @Override
-    protected void onDraw(Canvas canvas) {
-        Bitmap bitmap = mDecoder.decodeRegion(mRect, options);
-        canvas.drawBitmap(bitmap,0, 0, null);
-    }
-
-    /**
      *重写onMeasure方法
      */
     @Override
@@ -130,6 +127,15 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
         mRect.top = imageHeight / 2 - height / 2;
         mRect.right = mRect.left + width;
         mRect.bottom = mRect.top + height;
+    }
+
+    /**
+     * 重写onDraw方法
+     */
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Bitmap bitmap = mDecoder.decodeRegion(mRect, options);
+        canvas.drawBitmap(bitmap,0, 0, mPaint);
     }
 
     /**

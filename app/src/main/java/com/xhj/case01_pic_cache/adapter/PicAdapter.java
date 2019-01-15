@@ -50,8 +50,8 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
         holder.picName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int positon = holder.getAdapterPosition();
-                PicObj picObj = picObjList.get(positon);
+                int position = holder.getAdapterPosition();
+                PicObj picObj = picObjList.get(position);
                 Intent intent = new Intent(context, PicDetailActivity.class);
                 intent.putExtra(Constant.CASE01_PIC_NAME, picObj.getName());
                 intent.putExtra(Constant.CASE01_PIC_IMAGE_ID, picObj.getImageId());
@@ -61,8 +61,8 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
         holder.picImage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                int positon = holder.getAdapterPosition();
-                PicObj picObj = picObjList.get(positon);
+                int position = holder.getAdapterPosition();
+                PicObj picObj = picObjList.get(position);
                 Intent intent = new Intent(context, BigImageActivity.class);
                 intent.putExtra(Constant.CASE01_PIC_NAME, picObj.getName());
                 intent.putExtra(Constant.CASE01_PIC_IMAGE_ID, picObj.getImageId());
@@ -92,7 +92,7 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = (CardView) itemView;
-            picImage = itemView.findViewById(R.id.picture_imgae);
+            picImage = itemView.findViewById(R.id.picture_image);
             picName = itemView.findViewById(R.id.picture_name);
         }
     }

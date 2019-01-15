@@ -38,7 +38,7 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
     private int mLastY = 0;
 
     //图片的宽度和高度
-    private int mImageWidth, mImageHeigh;
+    private int mImageWidth, mImageHeight;
     // 手势控制器
     private GestureDetector mGestureDetector;
     private BitmapFactory.Options options;
@@ -82,7 +82,7 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
         //获取图片的宽高
         InputStream is = null;
         try {
-            is = getResources().getAssets().open("chruch.jpg");
+            is = getResources().getAssets().open("church.jpg");
             //初始化BitmapRegionDecode，并用它来显示图片
             //如果在decodeStream之前使用is，会导致出错
             // 此时流的起始位置已经被移动过了，需要调用is.reset()来重置，
@@ -94,7 +94,7 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
             is.reset();
             BitmapFactory.decodeStream(is,null,tempOptions);
             mImageWidth = tempOptions.outWidth;
-            mImageHeigh = tempOptions.outHeight;
+            mImageHeight = tempOptions.outHeight;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -120,7 +120,7 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
         int height = getMeasuredHeight();
 
         int imageWidth = mImageWidth;
-        int imageHeight = mImageHeigh;
+        int imageHeight = mImageHeight;
 
         //默认显示图片的中心区域
         mRect.left = imageWidth / 2 - width / 2;
@@ -215,13 +215,13 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
             isInvalidate = true;
         }
         //如果图片高度大于屏幕高度
-        if(mImageHeigh > getHeight()){
+        if(mImageHeight > getHeight()){
             mRect.offset(0, -deltaY);
 
             //是否到达最底部
-            if(mRect.bottom > mImageHeigh){
-                mRect.bottom = mImageHeigh;
-                mRect.top = mImageHeigh - getHeight();
+            if(mRect.bottom > mImageHeight){
+                mRect.bottom = mImageHeight;
+                mRect.top = mImageHeight - getHeight();
             }
 
             //是否到达最顶部

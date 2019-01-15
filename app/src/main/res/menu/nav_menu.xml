@@ -7,9 +7,9 @@
             android:title="Call"/>
 
         <item
-            android:id="@+id/frends"
+            android:id="@+id/friends"
             android:icon="@drawable/nav_friends"
-            android:title="Frends"/>
+            android:title="Friends"/>
 
         <item
             android:id="@+id/location"

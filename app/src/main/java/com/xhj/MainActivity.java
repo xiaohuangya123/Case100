@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 用SwipeResreshLayout实现图片的下拉刷新
+     * 用SwipeRefreshLayout实现图片的下拉刷新
      */
     private void initSwipeRefresh() {
         swipeRefresh = findViewById(R.id.swipe_refresh);
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"You click delete", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.setting:
-                Toast.makeText(this, "You click settting", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You click setting", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
